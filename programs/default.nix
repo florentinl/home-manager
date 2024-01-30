@@ -4,6 +4,7 @@
   imports = [
     ./alacritty.nix
     ./git.nix
+    ./neovim.nix
     ./shell.nix
     ./vscode.nix
   ];

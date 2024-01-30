@@ -25,7 +25,7 @@
       switch-applications = [ "<Super>Tab" ];
       switch-applications-backward = [ "<Shift><Super>Tab" ];
       switch-windows = [ "<Alt>Tab" ];
-      switch-windows-backward = [ "<Alt><Control>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
   };
 

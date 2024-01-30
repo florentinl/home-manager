@@ -8,6 +8,11 @@
     enable = true;
     enableZshIntegration = true;
   };
+  
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -16,12 +21,8 @@
     # enableAutosuggestions = true;
 
     initExtra = ''
-      # Set neovim as default editor
-      export EDITOR=nvim
-
       # Starship
       export STARSHIP_CONFIG=~/.config/home-manager/dotfiles/starship.toml
-      eval "$(starship init zsh)"
       
       # Rust
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
@@ -47,4 +48,10 @@
       ];
     };
   };
+
+  # Manage the clipboard from the command line
+  home.packages = with pkgs; [
+    xclip
+    xsel
+  ];
 }

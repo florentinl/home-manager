@@ -12,25 +12,28 @@
   ];
 
   home.packages = with pkgs; [
+    # Applications
     microsoft-edge
     enpass
 
-    neovim
+    # Nerd Fonts
+    (nerdfonts.override {
+      fonts = [
+        "CascadiaCode"
+        "Monaspace"
+      ];
+    })
 
-    starship
-    xclip
-    xsel
-
+    # Programming in Rust
     cargo
     rustc
     rustfmt
     clippy
     llvmPackages.libclang
 
+    # Programming in Nix
     nixd
     nixpkgs-fmt
-
-    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
   ];
 
   # This value determines the Home Manager release that your
