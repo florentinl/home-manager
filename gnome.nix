@@ -16,6 +16,7 @@
         "clipboard-history@alexsaveau.dev"
         "appindicatorsupport@rgcjonas.gmail.com"
         "blur-my-shell@aunetx"
+        "gsconnect@andyholmes.github.io"
       ];
     };
 
@@ -35,6 +36,6 @@
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.clipboard-history
     gnomeExtensions.blur-my-shell
-    gnome.gnome-tweaks
+    gnomeExtensions.gsconnect
   ];
 }

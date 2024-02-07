@@ -6,11 +6,6 @@
   home.username = "florentinl";
   home.homeDirectory = "/home/florentinl";
 
-  imports = [
-    ./gnome.nix
-    ./programs
-  ];
-
   home.packages = with pkgs; [
     # Applications
     microsoft-edge
@@ -23,13 +18,10 @@
         "Monaspace"
       ];
     })
-
-    # Programming in Rust
-    cargo
-    rustc
-    rustfmt
-    clippy
-    llvmPackages.libclang
+    
+    # Programming in Python
+    python3
+    poetry
 
     # Programming in Nix
     nixd

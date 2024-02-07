@@ -1,5 +1,24 @@
 {
   "nodes": {
+    "emoji-picker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dirtyRev": "4de6f1f4f4a4ce25dd9ff39b420dad35e80ec980-dirty",
+        "dirtyShortRev": "4de6f1f-dirty",
+        "lastModified": 1706910907,
+        "narHash": "sha256-waQ8eYFP0uILbel8tHBKpdyEqa/Cr6SVFICahochwF4=",
+        "type": "git",
+        "url": "file:///home/florentinl/Projects/emoji-picker"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/florentinl/Projects/emoji-picker"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
