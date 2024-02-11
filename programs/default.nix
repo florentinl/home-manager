@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    # ./firefox.nix I am still using Microsoft Edge waiting for passkey support
     ./git.nix
     ./neovim.nix
     ./shell.nix

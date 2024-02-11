@@ -18,7 +18,7 @@
         "Monaspace"
       ];
     })
-    
+
     # Programming in Python
     python3
     poetry
