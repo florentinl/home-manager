@@ -40,6 +40,15 @@
       "workbench.colorTheme" = "Adwaita Dark";
       "workbench.iconTheme" = null;
       "workbench.tree.indent" = 12;
+
+      # Enable GitHub Copilot in Markdown
+      "github.copilot.enable" = {
+        "*" = true;
+        "plaintext" = false;
+        "markdown" = true;
+        "scminput" = false;
+      };
+
     };
 
     keybindings = [
