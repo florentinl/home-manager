@@ -8,7 +8,7 @@
     enable = true;
     enableZshIntegration = true;
   };
-  
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -23,21 +23,23 @@
     initExtra = ''
       # Starship
       export STARSHIP_CONFIG=~/.config/home-manager/dotfiles/starship.toml
-      
+
       # Rust
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
     '';
 
     shellAliases = {
       # Eza
-      ll = "eza -lhF";
-      l = "eza -alhF";
+      ll = "eza -lhF always";
+      l = "eza -alhF always";
       # Bat
       cat = "bat";
 
       # NixOS
       nrs = "sudo nixos-rebuild switch";
+      ne = "code /etc/nixos";
       hms = "home-manager switch";
+      hme = "code ~/.config/home-manager";
     };
 
     oh-my-zsh = {

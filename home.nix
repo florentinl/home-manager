@@ -28,6 +28,13 @@
     nixpkgs-fmt
   ];
 
+  # Allow unfree packages from the command line
+  home.file.".config/nixpkgs/config.nix".text = ''
+    {
+      allowUnfree = true;
+    }
+  '';
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards

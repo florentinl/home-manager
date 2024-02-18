@@ -62,7 +62,6 @@
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.blur-my-shell
     gnomeExtensions.gsconnect
-
     gnomeExtensions.pano
   ];
 }
