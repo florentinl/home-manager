@@ -10,6 +10,7 @@
       jnoortheen.nix-ide
       github.copilot-chat
       piousdeer.adwaita-theme
+      hashicorp.terraform
     ];
     userSettings = {
       # Set affinity for Neovim
@@ -48,7 +49,6 @@
         "markdown" = true;
         "scminput" = false;
       };
-
     };
 
     keybindings = [

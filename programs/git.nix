@@ -6,7 +6,7 @@
     delta.enable = true;
 
     userName = "Florentin Labelle";
-    userEmail = "101594032+florentinl@users.noreply.github.com";
+    userEmail = "florentin@bsport.io";
 
     # Set default branch name to main
     extraConfig = {

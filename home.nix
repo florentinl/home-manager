@@ -6,15 +6,37 @@
   home.username = "florentinl";
   home.homeDirectory = "/home/florentinl";
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     # Applications
     microsoft-edge
     enpass
+    slack
+
+    # Kubernetes
+    kubectl
+    kubernetes-helm
+    k9s
+    jq
+    argocd
+
+    # AWS
+    awscli2
+    ssm-session-manager-plugin
+
+    # Direnv
+    direnv
+
+    # Terraform
+    tfswitch
+    terraform-ls
 
     # Nerd Fonts
     (nerdfonts.override {
       fonts = [
         "CascadiaCode"
+        "CascadiaMono"
         "Monaspace"
       ];
     })
