@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, configName, ... }:
 
 {
   programs.bat.enable = true;
@@ -6,12 +6,10 @@
 
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
   };
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -38,7 +36,7 @@
       # NixOS
       nrs = "sudo nixos-rebuild switch";
       ne = "code /etc/nixos";
-      hms = "home-manager switch";
+      hms = "home-manager switch --flake ~/.config/home-manager#${configName}";
       hme = "code ~/.config/home-manager";
     };
 

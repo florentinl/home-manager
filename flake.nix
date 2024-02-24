@@ -11,19 +11,24 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
+      makeConfiguration = { configName, system }:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          "${configName}" = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = { inherit configName; };
+            modules = [
+              ./commons
+              ./configurations/${configName}
+            ];
+          };
+        };
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfigurations."florentinl" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [
-          { nixpkgs.config.allowUnfree = true; }
-          ./home.nix
-          ./gnome.nix
-          ./programs
-        ];
-      };
+      homeConfigurations = makeConfiguration { configName = "flaptop"; system = system; } //
+        makeConfiguration { configName = "bsport"; system = system; };
     };
 }

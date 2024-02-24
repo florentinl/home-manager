@@ -12,6 +12,10 @@
       piousdeer.adwaita-theme
     ];
     userSettings = {
+      # VSCode settings
+      "editor.formatOnSave" = true;
+      "explorer.confirmDelete" = false;
+
       # Set affinity for Neovim
       "extensions.experimental.affinity" = {
         "asvetliakov.vscode-neovim" = 1;
