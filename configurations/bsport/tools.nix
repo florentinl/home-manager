@@ -1,12 +1,16 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 {
   # Additional programs to be installed
   programs.direnv.enable = true;
 
   # Additional vscode extensions to be installed
-  programs.vscode.extensions = with pkgs; [
-    # Kubernetes
+  programs.vscode.extensions = with pkgs.vscode-extensions; [
+    asvetliakov.vscode-neovim
+    github.copilot
+    jnoortheen.nix-ide
+    github.copilot-chat
+    piousdeer.adwaita-theme
     ms-kubernetes-tools.vscode-kubernetes-tools
     redhat.vscode-yaml
     hashicorp.terraform
@@ -29,7 +33,7 @@
 
     # Terraform
     tfswitch
-    terrarform-ls
+    terraform-ls
 
     # Misc
     jq

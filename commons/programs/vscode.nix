@@ -53,6 +53,8 @@
         "scminput" = false;
       };
 
+      # Configure Some Extensions
+      "redhat.telemetry.enabled" = false;
     };
 
     keybindings = [
