@@ -16,6 +16,14 @@
     hashicorp.terraform
   ];
 
+  # Additional oh-my-zsh plugins to be installed
+  programs.zsh.oh-my-zsh.plugins = [
+    "aws"
+    "helm"
+    "kubectl"
+    "argocd"
+  ];
+
   # Additional packages to be installed
   home.packages = with pkgs; [
     # Applications
