@@ -44,9 +44,41 @@
       enable = true;
       plugins = [
         "git"
-        "fzf"
       ];
     };
+
+    plugins = [
+      {
+        name = "omz-utils";
+        src = pkgs.fetchFromGitHub {
+          owner = "florentinl";
+          repo = "omz-utils";
+          rev = "main";
+          sha256 = "FsfMHW35gcEsiMkIU1GUH2nhqn1s7l5Kv8sdwaG6JYA=";
+        };
+        file = "utils.plugin.zsh";
+      }
+      {
+        name = "kubectl-set-ns";
+        src = pkgs.fetchFromGitHub {
+          owner = "florentinl";
+          repo = "omz-kubectl-set-ns";
+          rev = "main";
+          sha256 = "ZxhyPcYk7a23G+NYVaM2G+xOrXt5Khpu/QEieYZVdHA=";
+        };
+        file = "kubectl-set-ns.plugin.zsh";
+      }
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "master";
+          sha256 = "R30Rb/yxEryFGG527OoFPUVkTQU+Mex4R0D0+iqJQKw=";
+        };
+        file = "fzf-tab.zsh";
+      }
+    ];
   };
 
   # Manage the clipboard from the command line
