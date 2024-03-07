@@ -10,11 +10,16 @@
       jnoortheen.nix-ide
       github.copilot-chat
       piousdeer.adwaita-theme
+      redhat.vscode-xml
     ];
     userSettings = {
       # VSCode settings
       "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;
+
+      # rust-analyzer extension settings -> use rust-analyzer binary instead of downloading it
+      # "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      # "xml.server.binary.path" = "${pkgs.lemminx}/bin/lemminx";
 
       # Set affinity for Neovim
       "extensions.experimental.affinity" = {

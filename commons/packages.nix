@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # Applications
-    microsoft-edge
+    (callPackage (import ./microsoft-edge).stable { })
     enpass
 
     # Nerd Fonts
@@ -14,6 +14,10 @@
       ];
     })
 
+    # Text Editor
+    neovide
+
+
     # Programming in Python
     python3
     poetry
@@ -21,5 +25,8 @@
     # Programming in Nix
     nixd
     nixpkgs-fmt
+
+    # XML language server
+    lemminx
   ];
 }
