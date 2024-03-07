@@ -16,7 +16,7 @@
 
     # Text Editor
     neovide
-
+    ripgrep
 
     # Programming in Python
     python3
