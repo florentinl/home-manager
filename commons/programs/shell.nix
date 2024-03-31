@@ -1,4 +1,4 @@
-{ pkgs, configName, ... }:
+{ pkgs, lib, configName, ... }:
 
 {
   programs.bat.enable = true;
@@ -9,6 +9,10 @@
   };
 
   programs.starship = {
+    enable = true;
+  };
+
+  programs.zellij = {
     enable = true;
   };
 
@@ -28,7 +32,7 @@
 
     shellAliases = {
       # Eza
-      ll = "eza -lhF always";
+      ll = lib.mkForce "eza -lhF always";
       l = "eza -alhF always";
       # Bat
       cat = "bat";

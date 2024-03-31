@@ -4,22 +4,19 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      rust-lang.rust-analyzer
       asvetliakov.vscode-neovim
       github.copilot
       jnoortheen.nix-ide
       github.copilot-chat
-      piousdeer.adwaita-theme
-      redhat.vscode-xml
     ];
     userSettings = {
       # VSCode settings
       "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;
 
-      # rust-analyzer extension settings -> use rust-analyzer binary instead of downloading it
-      # "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-      # "xml.server.binary.path" = "${pkgs.lemminx}/bin/lemminx";
+      # Nix-IDE settings
+      nix.enableLanguageServer = true;
+      nix.serverPath = "nil";
 
       # Set affinity for Neovim
       "extensions.experimental.affinity" = {
@@ -37,18 +34,13 @@
       "files.insertFinalNewline" = true;
 
       # Adwaita theme
-      "editor.renderLineHighlight" = "none";
       "window.titleBarStyle" = "native";
       "window.commandCenter" = true;
       "window.menuBarVisibility" = "toggle";
       "window.autoDetectColorScheme" = true;
       "workbench.layoutControl.enabled" = false;
-      "workbench.preferredDarkColorTheme" = "Adwaita Dark";
-      "workbench.preferredLightColorTheme" = "Adwaita Light";
-      "workbench.productIconTheme" = "adwaita";
-      "workbench.colorTheme" = "Adwaita Dark";
-      "workbench.iconTheme" = null;
       "workbench.tree.indent" = 12;
+      "workbench.sideBar.location" = "right";
 
       # Enable GitHub Copilot in Markdown
       "github.copilot.enable" = {
@@ -57,9 +49,6 @@
         "markdown" = true;
         "scminput" = false;
       };
-
-      # Configure Some Extensions
-      "redhat.telemetry.enabled" = false;
     };
 
     keybindings = [

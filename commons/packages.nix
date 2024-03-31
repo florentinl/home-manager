@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # Applications
-    (callPackage (import ./microsoft-edge).stable { })
+    microsoft-edge
     enpass
 
     # Nerd Fonts
@@ -23,10 +23,7 @@
     poetry
 
     # Programming in Nix
-    nixd
+    nil
     nixpkgs-fmt
-
-    # XML language server
-    lemminx
   ];
 }

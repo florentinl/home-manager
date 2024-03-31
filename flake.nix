@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       makeConfiguration = { configName, system }:
         let
