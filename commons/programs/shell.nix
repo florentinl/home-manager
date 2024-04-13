@@ -1,19 +1,13 @@
 { pkgs, lib, configName, ... }:
 
 {
-  programs.bat.enable = true;
-  programs.eza.enable = true;
-
-  programs.fzf = {
-    enable = true;
-  };
-
-  programs.starship = {
-    enable = true;
-  };
-
-  programs.zellij = {
-    enable = true;
+  programs = {
+    bat.enable = true;
+    eza.enable = true;
+    fzf.enable = true;
+    starship.enable = true;
+    zellij.enable = true;
+    zoxide.enable = true;
   };
 
   programs.zsh = {
