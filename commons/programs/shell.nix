@@ -37,6 +37,12 @@
       # Bat
       cat = "bat";
 
+      # Zellij
+      zj = "zellij";
+      zja = "zellij attach";
+      zjd = "zellij delete-session";
+      zjda = "zellij delete-all-sessions";
+
       # NixOS
       nrs = "sudo nixos-rebuild switch";
       ne = "code /etc/nixos";
