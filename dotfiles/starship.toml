@@ -7,15 +7,8 @@ add_newline = false
 format = """
 [╭─](fg:line)[ ](bg:bg)\
 $os\
-[  ](fg:separator bg:bg)\
-$directory\
-[ ](bg:bg)\
-([ ](fg:separator bg:bg)\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status)\
-$time\
+([ ](fg:separator bg:bg)$directory)\
+([ ](fg:separator bg:bg)${custom.git_symbol}$git_branch$git_commit$git_state$git_status)\
 [](fg:bg)\
 $fill\
 [](fg:bg)\
@@ -55,18 +48,27 @@ disabled = false
 format = "[$symbol](fg:fg bg:bg)"
 
 [os.symbols]
-Ubuntu = "󰕈"
-Macos = ""
-Windows = ""
-NixOS = ""
+Ubuntu = "󰕈 "
+Macos = " "
+Windows = " "
+NixOS = " "
 
 [directory]
 format = '[  $path]($style)[$read_only]($read_only_style)'
 style = "fg:cyan bg:bg"
 
+[custom.git_symbol]
+disabled = false
+format = "[$output  ]($style)"
+style = "fg:green bg:bg"
+require_repo = true
+when = "true"
+os = "linux"
+command = "remote=$(git remote -v); if echo $remote | grep -q 'github'; then echo ''; elif echo $remote | grep -q 'gitlab'; then echo ''; else echo ''; fi"
+
 [git_branch]
 format = '[$symbol$branch ]($style)[$compare]($compare_style)'
-symbol = " "
+symbol = ""
 style = "fg:green bg:bg"
 
 [git_commit]
