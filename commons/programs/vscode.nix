@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -53,11 +51,22 @@
 
     keybindings = [
       # Toggle terminal with Super+j
-      { key = "ctrl+j"; command = "workbench.action.terminal.toggleTerminal"; }
+      {
+        key = "ctrl+j";
+        command = "workbench.action.terminal.toggleTerminal";
+      }
       # Toggle File Explorer with Super+e
-      { key = "ctrl+e"; command = "workbench.view.explorer"; when = "!sideBarVisible || !sideBarFocus"; }
+      {
+        key = "ctrl+e";
+        command = "workbench.view.explorer";
+        when = "!sideBarVisible || !sideBarFocus";
+      }
       # Hide File Explorer with Super+e
-      { key = "ctrl+e"; command = "workbench.action.closeSidebar"; when = "sideBarFocus"; }
+      {
+        key = "ctrl+e";
+        command = "workbench.action.closeSidebar";
+        when = "sideBarFocus";
+      }
     ];
   };
 }

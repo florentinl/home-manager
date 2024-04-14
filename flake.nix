@@ -9,26 +9,37 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
-    let
-      makeConfiguration = { configName, system }:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          "${configName}" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = { inherit configName; };
-            modules = [
-              ./commons
-              ./configurations/${configName}
-            ];
-          };
-        };
-      system = "x86_64-linux";
-    in
-    {
-      homeConfigurations = makeConfiguration { configName = "flaptop"; system = system; } //
-        makeConfiguration { configName = "bsport"; system = system; };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  }: let
+    makeConfiguration = {
+      configName,
+      system,
+    }: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      "${configName}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit configName;};
+        modules = [
+          ./commons
+          ./configurations/${configName}
+        ];
+      };
     };
+    system = "x86_64-linux";
+  in {
+    formatter."${system}" = nixpkgs.legacyPackages.${system}.alejandra;
+    homeConfigurations =
+      makeConfiguration {
+        configName = "flaptop";
+        system = system;
+      }
+      // makeConfiguration {
+        configName = "bsport";
+        system = system;
+      };
+  };
 }

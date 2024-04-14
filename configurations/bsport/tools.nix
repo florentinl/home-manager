@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Additional programs to be installed
   programs.direnv.enable = true;
 

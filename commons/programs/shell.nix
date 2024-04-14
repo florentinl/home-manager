@@ -1,6 +1,9 @@
-{ pkgs, lib, configName, ... }:
-
 {
+  pkgs,
+  lib,
+  configName,
+  ...
+}: {
   programs = {
     bat.enable = true;
     eza.enable = true;
