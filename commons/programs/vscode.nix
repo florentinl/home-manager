@@ -15,6 +15,9 @@
       # Nix-IDE settings
       nix.enableLanguageServer = true;
       nix.serverPath = "nil";
+      nix.serverSettings = {
+        nil.formatting.command = ["nix" "fmt" "--" "-"];
+      };
 
       # Set affinity for Neovim
       "extensions.experimental.affinity" = {

@@ -1,13 +1,9 @@
-{
-  pkgs,
-  ...
-}:
-
-let
+{pkgs, ...}: let
   docker_daemon = "/home/florentinl/.config/docker-daemon.json";
-in
-{
-  home.packages = with pkgs; [docker];
+in {
+  home.packages = [
+    pkgs.docker
+  ];
 
   # Create a configuration file for the rootless daemon
   home.file.docker_daemon = {
@@ -20,7 +16,7 @@ in
   home.file.docker_context = {
     enable = true;
     text = ''
-    {"Name":"rootless","Metadata":{},"Endpoints":{"docker":{"Host":"unix:///run/user/1000/docker.sock","SkipTLSVerify":false}}}
+      {"Name":"rootless","Metadata":{},"Endpoints":{"docker":{"Host":"unix:///run/user/1000/docker.sock","SkipTLSVerify":false}}}
     '';
     recursive = true;
     target = ".docker/contexts/meta/12b961af5feb3e9d39f93b2cefb9a1a944f18d02cca0cac2f04f5a982240605f/meta.json";
