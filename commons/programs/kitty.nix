@@ -7,8 +7,8 @@
 
     keybindings = {
       "f11" = "toggle_fullscreen";
-      "ctrl+c" = "copy_or_interrupt";
-      "ctrl+v" = "copy_and_clear_or_interrupt";
+      "ctrl+c" = "copy_and_clear_or_interrupt";
+      "ctrl+v" = "paste_from_clipboard";
     };
   };
 }

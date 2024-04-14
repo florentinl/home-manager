@@ -6,8 +6,15 @@
     eza.enable = true;
     fzf.enable = true;
     starship.enable = true;
-    zellij.enable = true;
     zoxide.enable = true;
+  };
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      copy_on_select = false;
+      default_layout = "compact";
+    };
   };
 
   programs.zsh = {
@@ -22,6 +29,9 @@
 
       # Rust
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
+
+      # Python
+      export VIRTUAL_ENV_DISABLE_PROMPT=1
     '';
 
     shellAliases = {

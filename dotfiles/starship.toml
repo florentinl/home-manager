@@ -18,9 +18,11 @@ $git_status)\
 $time\
 [](fg:bg)\
 $fill\
-$terraform\
 [](fg:bg)\
 $status\
+([│ ](fg:separator bg:bg)$python)\
+([│ ](fg:separator bg:bg)$aws)\
+([│ ](fg:separator bg:bg)$kubernetes)\
 [─╮](fg:line)($shell)
 [╰─](fg:line)$sudo$character"""
 
@@ -30,7 +32,10 @@ right_format = "[─╯](fg:line)"
 bg = "#1c1c1c"
 fg = "#eeeee7"
 line = "#444444"
-separator = "#6c6c6c"
+separator = "#303030"
+aws = "#ff9900"
+kubernetes = "#326ce5"
+python = "#ffde57"
 
 [character]
 format = " "
@@ -40,7 +45,7 @@ symbol = " "
 
 [shell]
 disabled = false
-format ="[$indicator]($style)"
+format = "[$indicator]($style)"
 bash_indicator = ""
 zsh_indicator = " "
 fish_indicator = ""
@@ -87,6 +92,22 @@ modified = "[!$count ](fg:yellow bg:bg)"
 staged = "[+$count ](fg:yellow bg:bg)"
 renamed = "[~$count ](fg:yellow bg:bg)"
 deleted = "[-$count ](fg:red bg:bg)"
+
+[aws]
+style = "fg:aws bg:bg"
+symbol = "\uf0ef  "
+format = '[$symbol$profile ]($style)'
+
+[kubernetes]
+disabled = false
+style = "fg:kubernetes bg:bg"
+symbol = "󱃾  "
+format = "[$symbol$context( \\($namespace\\))]($style)"
+
+[python]
+style = "fg:python bg:bg"
+symbol = " "
+format = "([$symbol$virtualenv]($style))"
 
 [status]
 disabled = false
