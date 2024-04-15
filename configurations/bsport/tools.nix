@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  nodePkgs,
+  ...
+}: {
   # Additional programs to be installed
   programs.direnv.enable = true;
 
@@ -12,6 +17,10 @@
     ms-kubernetes-tools.vscode-kubernetes-tools
     redhat.vscode-yaml
     hashicorp.terraform
+    ms-python.python
+    ms-python.isort
+    ms-python.black-formatter
+    ms-python.vscode-pylance
   ];
 
   # Additional oh-my-zsh plugins to be installed
@@ -20,7 +29,14 @@
     "helm"
     "kubectl"
     "argocd"
+    "terraform"
   ];
+
+  programs.zsh.envExtra = ''
+    export PATH="$HOME/.local/bin:$PATH"
+  '';
+
+  programs.git.userEmail = lib.mkForce "florentin@bsport.io";
 
   # Additional packages to be installed
   home.packages = with pkgs; [
@@ -36,12 +52,23 @@
     # AWS
     awscli2
     ssm-session-manager-plugin
+    aws-vault
 
     # Terraform
     tfswitch
     terraform-ls
+    terraform-docs
+
+    # Node
+    nodePkgs.yarn
+    nodePkgs.nodejs
+
+    # Python
+    pipenv
 
     # Misc
     jq
+    dig
+    yq-go
   ];
 }

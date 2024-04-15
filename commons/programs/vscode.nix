@@ -13,9 +13,9 @@
       "explorer.confirmDelete" = false;
 
       # Nix-IDE settings
-      nix.enableLanguageServer = true;
-      nix.serverPath = "nil";
-      nix.serverSettings = {
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+      "nix.serverSettings" = {
         nil.formatting.command = ["nix" "fmt" "--" "-"];
       };
 
