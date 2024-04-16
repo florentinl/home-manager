@@ -16,9 +16,12 @@
     neovide
     ripgrep
 
-    # Programming in Python
-    python3
-    poetry
+    # GitHub CLI
+    gh
+    gh-copilot
+
+    # Glab CLI
+    glab
 
     # Programming in Nix
     nil

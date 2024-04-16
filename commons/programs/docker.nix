@@ -2,13 +2,17 @@
   docker_daemon = "/home/florentinl/.config/docker-daemon.json";
 in {
   home.packages = [
-    pkgs.docker
+    pkgs.docker_26
   ];
 
   # Create a configuration file for the rootless daemon
   home.file.docker_daemon = {
     enable = true;
-    text = builtins.toJSON {};
+    text = builtins.toJSON {
+      features = {
+        containerd-snapshotter = true;
+      };
+    };
     target = docker_daemon;
   };
 
@@ -32,8 +36,9 @@ in {
     };
     Service = {
       Type = "notify";
-      ExecStart = "${pkgs.docker}/bin/dockerd-rootless --config-file=${docker_daemon}";
+      ExecStart = "${pkgs.docker_26}/bin/dockerd-rootless --config-file=${docker_daemon}";
       ExecReload = "${pkgs.procps}/bin/kill -s HUP $MAINPID";
+      Environment = "PATH=/run/wrappers/bin:/run/current-system/sw/bin";
       TimeoutSec = 0;
       RestartSec = 2;
       Restart = "always";
