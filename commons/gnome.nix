@@ -8,7 +8,7 @@
     # Interface
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      gtk-theme = "Adwaita-dark";
+      gtk-theme = "Adwaita";
       enable-hot-corners = false;
     };
 

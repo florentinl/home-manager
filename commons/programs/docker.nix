@@ -3,6 +3,7 @@
 in {
   home.packages = [
     pkgs.docker_26
+    pkgs.docker-credential-helpers
   ];
 
   # Create a configuration file for the rootless daemon
