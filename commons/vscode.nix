@@ -1,11 +1,24 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
+    enableExtensionUpdateCheck = false;
+    mutableExtensionsDir = true;
+    enableUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
-      asvetliakov.vscode-neovim
-      github.copilot
+      # asvetliakov.vscode-neovim
+      vscodevim.vim
       jnoortheen.nix-ide
+      github.copilot
       github.copilot-chat
+      mkhl.direnv
+
+      # C/C++ stuff
+      ms-vscode.cmake-tools
+      llvm-vs-code-extensions.vscode-clangd
+      vadimcn.vscode-lldb
+
+      # Rust stuff
+      rust-lang.rust-analyzer
     ];
     userSettings = {
       # VSCode settings
@@ -13,9 +26,9 @@
       "explorer.confirmDelete" = false;
 
       # Nix-IDE settings
-      nix.enableLanguageServer = true;
-      nix.serverPath = "nil";
-      nix.serverSettings = {
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+      "nix.serverSettings" = {
         nil.formatting.command = ["nix" "fmt" "--" "-"];
       };
 
@@ -50,6 +63,14 @@
         "markdown" = true;
         "scminput" = false;
       };
+
+      # Cmake stuff
+      "cmake.showOptionsMovedNotification" = false;
+      "cmake.options.statusBarVisibility" = "compact";
+      "cmake.pinnedCommands" = [
+        "workbench.action.tasks.configureTaskRunner"
+        "workbench.action.tasks.runTask"
+      ];
     };
 
     keybindings = [

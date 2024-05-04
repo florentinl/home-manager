@@ -3,6 +3,7 @@
     # Applications
     microsoft-edge
     enpass
+    neovide
 
     # Nerd Fonts
     (nerdfonts.override {
@@ -12,19 +13,15 @@
       ];
     })
 
-    # Text Editor
-    neovide
-    ripgrep
-
     # GitHub CLI
     gh
     gh-copilot
 
-    # Glab CLI
-    glab
+    # Python
+    python3
 
     # Programming in Nix
     nil
-    nixpkgs-fmt
+    alejandra
   ];
 }
