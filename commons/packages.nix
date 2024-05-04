@@ -23,6 +23,9 @@
     # Glab CLI
     glab
 
+    # Python
+    python312
+
     # Programming in Nix
     nil
     nixpkgs-fmt
