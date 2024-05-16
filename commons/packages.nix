@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # Applications
-    microsoft-edge
+    microsoft-edge-dev
     enpass
+    neovide
 
     # Nerd Fonts
     (nerdfonts.override {
@@ -12,22 +13,22 @@
       ];
     })
 
-    # Text Editor
-    neovide
+    # Random Tools
     ripgrep
+    yq-go
+    jq
+
+    # Text Editor
 
     # GitHub CLI
     gh
     gh-copilot
 
-    # Glab CLI
-    glab
-
     # Python
-    python312
+    python3
 
     # Programming in Nix
     nil
-    nixpkgs-fmt
+    alejandra
   ];
 }

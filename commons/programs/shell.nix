@@ -10,6 +10,8 @@
     fzf.enable = true;
     starship.enable = true;
     zoxide.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
   };
 
   programs.zellij = {
