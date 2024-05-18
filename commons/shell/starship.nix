@@ -45,7 +45,9 @@
         disabled = false;
         format = "[$symbol](fg:fg bg:bg)";
         symbols = {
+          Alpine = " ";
           Ubuntu = "󰕈 ";
+          Debian = " ";
           Macos = " ";
           Windows = " ";
           NixOS = " ";

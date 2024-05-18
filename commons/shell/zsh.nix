@@ -12,6 +12,7 @@
       # Eza Aliases
       ll = lib.mkForce "eza -lhF always";
       l = "eza -alhF always";
+      cat = "bat";
 
       # NixOS/Home Manager Aliases :TODO: Move to a separate plugin
       nrs = "sudo nixos-rebuild switch";
