@@ -1,9 +1,11 @@
 {...}: {
   imports = [
-    ./shell
     ./gnome.nix
+    ./nixvim
     ./packages.nix
+    ./shell
     ./vscode.nix
+    ./zellij.nix
   ];
 
   # Allow unfree packages for Home Manager
