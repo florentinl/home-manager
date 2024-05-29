@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # Applications
     microsoft-edge
+    floorp
     enpass
     neovide
 
