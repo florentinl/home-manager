@@ -24,5 +24,8 @@
     # Programming in Nix
     nil
     alejandra
+
+    # Utils
+    wl-clipboard
   ];
 }
