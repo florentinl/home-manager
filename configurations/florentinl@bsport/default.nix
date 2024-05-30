@@ -1,8 +1,20 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
-    ./aws.nix
     ./vscode.nix
   ];
+
+  services.docker = {
+    enable = true;
+    daemon.settings = {
+      features = {
+        containerd-snapshotter = true;
+      };
+    };
+  };
 
   home.packages = with pkgs; [
     slack
@@ -23,7 +35,7 @@
     "terraform"
   ];
 
-  programs.git.userEmail = "florentin@bsport.io";
+  programs.git.userEmail = lib.mkForce "florentin@bsport.io";
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

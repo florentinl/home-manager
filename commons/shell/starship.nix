@@ -72,6 +72,7 @@
         format = "[$symbol$branch ]($style)[$compare]($compare_style)";
         symbol = "";
         style = "fg:green bg:bg";
+        truncation_length = 10;
       };
       git_commit = {
         format = "[\($hash$tag\) ]($style)";

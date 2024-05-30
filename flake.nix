@@ -33,6 +33,7 @@
     homeConfigurations."florentinl@bsport" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
+        nixvim.homeManagerModules.nixvim
         ./flowpkgs
         ./commons
         ./configurations/${"florentinl@bsport"}
