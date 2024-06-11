@@ -12,6 +12,8 @@
       github.copilot-chat
       mkhl.direnv
 
+      pkief.material-icon-theme
+
       # C/C++ stuff
       ms-vscode.cmake-tools
       llvm-vs-code-extensions.vscode-clangd
@@ -24,17 +26,15 @@
       # VSCode settings
       "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;
+      "editor.smoothScrolling" = true;
+      "editor.cursorSurroundingLines" = 10;
+      "editor.cursorSurroundingLinesStyle" = "all";
 
       # Nix-IDE settings
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
       "nix.serverSettings" = {
         nil.formatting.command = ["nix" "fmt" "--" "-"];
-      };
-
-      # Set affinity for Neovim
-      "extensions.experimental.affinity" = {
-        "asvetliakov.vscode-neovim" = 1;
       };
 
       # Set font to CaskaydiaCove Nerd Font
@@ -47,7 +47,7 @@
       "files.trimFinalNewlines" = true;
       "files.insertFinalNewline" = true;
 
-      # Adwaita theme
+      # Visual settings
       "window.titleBarStyle" = "native";
       "window.commandCenter" = true;
       "window.menuBarVisibility" = "toggle";
@@ -55,6 +55,7 @@
       "workbench.layoutControl.enabled" = false;
       "workbench.tree.indent" = 12;
       "workbench.sideBar.location" = "right";
+      "workbench.iconTheme" = "material-icon-theme";
 
       # Enable GitHub Copilot in Markdown
       "github.copilot.enable" = {
@@ -71,6 +72,21 @@
         "workbench.action.tasks.configureTaskRunner"
         "workbench.action.tasks.runTask"
       ];
+
+      # VSCodeVim settings
+      "vim.handleKeys" = {
+        "<C-p>" = false;
+        "<C-k>" = false;
+        "<C-w>" = false;
+      };
+
+      # Use jk to exit insert mode
+      "vim.insertModeKeyBindings" = [
+        {
+          "before" = ["j" "k"];
+          "after" = ["<Esc>"];
+        }
+      ];
     };
 
     keybindings = [
@@ -85,11 +101,61 @@
         command = "workbench.view.explorer";
         when = "!sideBarVisible || !sideBarFocus";
       }
-      # Hide File Explorer with Super+e
       {
         key = "ctrl+e";
         command = "workbench.action.closeSidebar";
         when = "sideBarFocus";
+      }
+
+      # Pane navigation with Super+hjkl
+      {
+        key = "ctrl+alt+h";
+        command = "workbench.action.focusLeftGroup";
+      }
+      {
+        key = "ctrl+alt+j";
+        command = "workbench.action.focusBelowGroup";
+      }
+      {
+        key = "ctrl+alt+k";
+        command = "workbench.action.focusAboveGroup";
+      }
+      {
+        key = "ctrl+alt+l";
+        command = "workbench.action.focusRightGroup";
+      }
+
+      # Split vertical/horizontal with Super+v/h
+      {
+        key = "ctrl+k v";
+        command = "workbench.action.splitEditorRight";
+      }
+
+      # Move Editor into group with
+      {
+        key = "ctrl+k h";
+        command = "workbench.action.moveEditorToLeftGroup";
+      }
+      {
+        key = "ctrl+k l";
+        command = "workbench.action.moveEditorToRightGroup";
+      }
+
+      # Git Hunk navigation
+      {
+        key = "ctrl+k g";
+        command = "editor.action.dirtydiff.next";
+        when = "editorTextFocus && !textCompareEditorActive";
+      }
+
+      # Git
+      {
+        key = "ctrl+k a";
+        command = "git.stageSelectedRanges";
+      }
+      {
+        key = "ctrl+k b";
+        command = "git.unstageSelectedRanges";
       }
     ];
   };
