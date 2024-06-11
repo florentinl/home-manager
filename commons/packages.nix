@@ -2,9 +2,8 @@
   home.packages = with pkgs; [
     # Applications
     microsoft-edge
-    floorp
     enpass
-    neovide
+    zed-editor
 
     # Nerd Fonts
     (nerdfonts.override {
@@ -13,10 +12,6 @@
         "Monaspace"
       ];
     })
-
-    # GitHub CLI
-    gh
-    gh-copilot
 
     # Python
     python3
