@@ -30,15 +30,6 @@
         ./configurations/${"florentinl@flaptop"}
       ];
     };
-    homeConfigurations."florentinl@bsport" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        nixvim.homeManagerModules.nixvim
-        ./flowpkgs
-        ./commons
-        ./configurations/${"florentinl@bsport"}
-      ];
-    };
     homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
