@@ -7,6 +7,7 @@
   cfg = config.services.docker;
   settingsFormat = pkgs.formats.json {};
   daemonSettingsFile = settingsFormat.generate "daemon.json" cfg.daemon.settings;
+  docker_pkg = pkgs.docker_27;
 in {
   options.services.docker = {
     enable = lib.mkOption {
@@ -33,7 +34,7 @@ in {
       context_sha = builtins.hashString "sha256" cfg.context;
     in {
       home.packages = [
-        pkgs.docker_26
+        docker_pkg
         pkgs.docker-credential-helpers
       ];
 
@@ -79,7 +80,7 @@ in {
         };
         Service = {
           Type = "notify";
-          ExecStart = "${pkgs.docker_26}/bin/dockerd-rootless --config-file=${daemonSettingsFile}";
+          ExecStart = "${docker_pkg}/bin/dockerd-rootless --config-file=${daemonSettingsFile}";
           ExecReload = "${pkgs.procps}/bin/kill -s HUP $MAINPID";
           Environment = "PATH=/run/wrappers/bin:/run/current-system/sw/bin";
           TimeoutSec = 0;
