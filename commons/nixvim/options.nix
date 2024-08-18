@@ -8,9 +8,10 @@
 
     signcolumn = "yes";
 
-    autoindent = true;
+    autoindent = false;
     expandtab = true;
-    smartindent = true;
+    smartindent = false;
+    foldopen = "all";
 
     ignorecase = true;
     incsearch = true;

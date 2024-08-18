@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   dconf.settings = {
     # Lock screen on suspend
     "org/gnome/desktop/lockdown" = {
@@ -33,23 +34,21 @@
     # Pano settings
     "org/gnome/shell/extensions/pano" = {
       session-only-mode = true;
-      exclusion-list = [
-        "Enpass"
-      ];
+      exclusion-list = [ "Enpass" ];
       send-notification-on-copy = false;
       play-audio-on-copy = false;
-      global-shortcut = ["<Super>v"];
+      global-shortcut = [ "<Super>v" ];
     };
 
     # Keybindings
     "org/gnome/desktop/wm/keybindings" = {
-      switch-applications = ["<Super>Tab"];
-      switch-applications-backward = ["<Shift><Super>Tab"];
-      switch-windows = ["<Alt>Tab"];
-      switch-windows-backward = ["<Shift><Alt>Tab"];
+      switch-applications = [ "<Super>Tab" ];
+      switch-applications-backward = [ "<Shift><Super>Tab" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
     "org/gnome/shell/keybindings" = {
-      toggle-message-tray = ["<Super>m"];
+      toggle-message-tray = [ "<Super>m" ];
     };
   };
 

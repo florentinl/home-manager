@@ -1,12 +1,11 @@
+{ pkgs, ... }:
 {
   programs.nixvim.plugins.lsp = {
     enable = true;
     servers = {
-      nil-ls = {
+      nixd = {
         enable = true;
-        extraOptions.settings = {
-          nil.formatting.command = ["nix" "fmt" "--" "-"];
-        };
+        settings.formatting.command = [ "nixfmt" ];
       };
       pyright.enable = true;
       ruff.enable = true;
@@ -19,4 +18,6 @@
       "K" = "hover";
     };
   };
+
+  home.packages = with pkgs; [ nixfmt-rfc-style ];
 }

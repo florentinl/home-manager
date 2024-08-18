@@ -3,12 +3,14 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.docker;
-  settingsFormat = pkgs.formats.json {};
+  settingsFormat = pkgs.formats.json { };
   daemonSettingsFile = settingsFormat.generate "daemon.json" cfg.daemon.settings;
   docker_pkg = pkgs.docker_27;
-in {
+in
+{
   options.services.docker = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -16,7 +18,7 @@ in {
     };
     daemon.settings = lib.mkOption {
       type = settingsFormat.type;
-      default = {};
+      default = { };
     };
     socket = lib.mkOption {
       type = lib.types.str;
@@ -28,11 +30,11 @@ in {
     };
   };
 
-  config =
-    lib.mkIf cfg.enable
-    (let
+  config = lib.mkIf cfg.enable (
+    let
       context_sha = builtins.hashString "sha256" cfg.context;
-    in {
+    in
+    {
       home.packages = [
         docker_pkg
         pkgs.docker-credential-helpers
@@ -42,30 +44,26 @@ in {
       home.file = {
         docker_context = {
           enable = true;
-          text =
-            builtins.toJSON
-            {
-              Name = cfg.context;
-              Metadata = {};
-              Endpoints = {
-                docker = {
-                  Host = "unix://${cfg.socket}";
-                  SkipTLSVerify = false;
-                };
+          text = builtins.toJSON {
+            Name = cfg.context;
+            Metadata = { };
+            Endpoints = {
+              docker = {
+                Host = "unix://${cfg.socket}";
+                SkipTLSVerify = false;
               };
             };
+          };
           recursive = true;
           target = ".docker/contexts/meta/${context_sha}/meta.json";
         };
         docker_config = {
           enable = true;
-          text =
-            builtins.toJSON
-            {
-              auths = {};
-              credsStore = "secretservice";
-              currentContext = cfg.context;
-            };
+          text = builtins.toJSON {
+            auths = { };
+            credsStore = "secretservice";
+            currentContext = cfg.context;
+          };
           target = ".docker/config.json";
         };
       };
@@ -76,7 +74,7 @@ in {
           Description = "Docker Application Container Engine (Rootless)";
         };
         Install = {
-          WantedBy = ["default.target"];
+          WantedBy = [ "default.target" ];
         };
         Service = {
           Type = "notify";
@@ -95,5 +93,6 @@ in {
           KillMode = "mixed";
         };
       };
-    });
+    }
+  );
 }

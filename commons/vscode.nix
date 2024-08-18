@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
     enableExtensionUpdateCheck = false;
@@ -34,7 +35,12 @@
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
       "nix.serverSettings" = {
-        nil.formatting.command = ["nix" "fmt" "--" "-"];
+        nil.formatting.command = [
+          "nix"
+          "fmt"
+          "--"
+          "-"
+        ];
       };
 
       # Set font to CaskaydiaCove Nerd Font
@@ -83,8 +89,11 @@
       # Use jk to exit insert mode
       "vim.insertModeKeyBindings" = [
         {
-          "before" = ["j" "k"];
-          "after" = ["<Esc>"];
+          "before" = [
+            "j"
+            "k"
+          ];
+          "after" = [ "<Esc>" ];
         }
       ];
     };

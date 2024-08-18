@@ -1,6 +1,6 @@
-{...}: {
-  imports = [
-  ];
+{ ... }:
+{
+  imports = [ ];
 
   services.docker = {
     enable = true;

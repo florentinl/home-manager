@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     bat.enable = true;
     eza.enable = true;
@@ -10,7 +11,5 @@
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
   };
-  home.packages = with pkgs; [
-    yq-go
-  ];
+  home.packages = with pkgs; [ yq-go ];
 }

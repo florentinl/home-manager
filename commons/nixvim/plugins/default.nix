@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -9,10 +10,16 @@
     bufferline.enable = true;
     comment.enable = true;
     copilot-vim.enable = true;
+    hardtime.enable = true;
     lualine.enable = true;
     nvim-autopairs.enable = true;
     project-nvim.enable = true;
     project-nvim.enableTelescope = true;
     which-key.enable = true;
   };
+
+  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [ precognition-nvim ];
+  programs.nixvim.extraConfigLua = ''
+    require('precognition').setup({})
+  '';
 }
