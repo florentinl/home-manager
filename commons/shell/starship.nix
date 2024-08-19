@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
   programs.starship = {
     enable = true;
@@ -14,7 +14,7 @@
         "([│ ](fg:separator bg:bg)$python)"
         "([│ ](fg:separator bg:bg)$aws)"
         "([│ ](fg:separator bg:bg)$kubernetes)"
-        "[─╮](fg:line)($shell)\n"
+        "[─╮](fg:line)\n"
         "[╰─](fg:line)$sudo$character"
       ];
       right_format = "[─╯](fg:line)";
@@ -34,13 +34,6 @@
       };
       fill = {
         symbol = " ";
-      };
-      shell = {
-        disabled = false;
-        format = "[$indicator]($style)";
-        bash_indicator = "";
-        zsh_indicator = " ";
-        fish_indicator = "";
       };
       os = {
         disabled = false;
@@ -124,4 +117,5 @@
       };
     };
   };
+  home.packages = with pkgs; [ iconv ];
 }

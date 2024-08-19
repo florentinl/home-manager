@@ -18,7 +18,8 @@
     python3
 
     # Programming in Nix
-    nil
+    nixfmt-rfc-style
+    nixd
     alejandra
 
     # Utils

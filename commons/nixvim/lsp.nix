@@ -18,6 +18,4 @@
       "K" = "hover";
     };
   };
-
-  home.packages = with pkgs; [ nixfmt-rfc-style ];
 }

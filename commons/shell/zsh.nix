@@ -18,6 +18,7 @@
 
     localVariables = {
       VIRTUAL_ENV_DISABLE_PROMPT = "1"; # This will be managed by Starship instead
+      ZLE_RPROMPT_INDENT = "0";
     };
 
     oh-my-zsh = {

@@ -6,7 +6,6 @@
     mutableExtensionsDir = true;
     enableUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
-      # asvetliakov.vscode-neovim
       vscodevim.vim
       jnoortheen.nix-ide
       github.copilot
@@ -22,6 +21,13 @@
 
       # Rust stuff
       rust-lang.rust-analyzer
+
+      # Python stuff
+      ms-python.python
+      ms-python.vscode-pylance
+      ms-python.debugpy
+      charliermarsh.ruff
+
     ];
     userSettings = {
       # VSCode settings
@@ -33,14 +39,9 @@
 
       # Nix-IDE settings
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
-      "nix.serverSettings" = {
-        nil.formatting.command = [
-          "nix"
-          "fmt"
-          "--"
-          "-"
-        ];
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings".nixd = {
+        formatting.command = [ "nixfmt" ];
       };
 
       # Set font to CaskaydiaCove Nerd Font
