@@ -12,6 +12,8 @@
 
   programs.nixvim = {
     enable = true;
+    vimAlias = true;
+    viAlias = true;
     defaultEditor = true;
     globals.mapleader = " ";
   };
