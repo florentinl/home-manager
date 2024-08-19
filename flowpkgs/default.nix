@@ -1,1 +1,6 @@
-{ imports = [ ./services ]; }
+{
+  imports = [
+    ./autostart.nix
+    ./services
+  ];
+}

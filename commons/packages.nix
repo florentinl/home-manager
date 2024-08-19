@@ -25,4 +25,6 @@
     # Utils
     wl-clipboard
   ];
+
+  xdg.autostart.packages = with pkgs; [ enpass ];
 }
