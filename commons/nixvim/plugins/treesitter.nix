@@ -7,6 +7,5 @@
         indent.enable = true;
       };
     };
-    plugins.treesitter-context.enable = true;
   };
 }

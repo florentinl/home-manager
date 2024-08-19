@@ -23,27 +23,21 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [
+        "git"
+        "utils"
+      ];
+      custom = "$HOME/.config/home-manager/commons/shell/zsh_custom";
     };
 
     plugins = [
-      {
-        name = "omz-utils";
-        src = pkgs.fetchFromGitHub {
-          owner = "florentinl";
-          repo = "omz-utils";
-          rev = "main";
-          sha256 = "FsfMHW35gcEsiMkIU1GUH2nhqn1s7l5Kv8sdwaG6JYA=";
-        };
-        file = "utils.plugin.zsh";
-      }
       {
         name = "fzf-tab";
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "v1.0";
-          sha256 = "o3R9dh9t8w/SVO3IUeJqP8kkQxwnRjNX8oZ4wSZxBYo=";
+          rev = "v1.1.2";
+          sha256 = "Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
         };
         file = "fzf-tab.zsh";
       }
