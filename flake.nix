@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-db = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -16,6 +20,7 @@
       nixpkgs,
       home-manager,
       nixvim,
+      nix-index-db,
       ...
     }:
     let
@@ -28,6 +33,7 @@
         inherit pkgs;
         modules = [
           nixvim.homeManagerModules.nixvim
+          nix-index-db.hmModules.nix-index
           ./flowpkgs
           ./commons
           ./configurations/${"florentinl@flaptop"}

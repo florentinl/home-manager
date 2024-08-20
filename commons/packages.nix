@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
+  programs.nix-index-database.comma.enable = true;
+
   home.packages = with pkgs; [
+
     # Applications
     microsoft-edge
     enpass
