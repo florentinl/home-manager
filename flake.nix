@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-    # nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,19 +33,15 @@
       formatter."${system}" = pkgs.nixfmt-rfc-style;
       homeConfigurations."florentinl@flaptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = {
+          inherit nixpkgs;
+        };
         modules = [
           nixvim.homeManagerModules.nixvim
           nix-index-db.hmModules.nix-index
           ./flowpkgs
           ./commons
           ./configurations/${"florentinl@flaptop"}
-        ];
-      };
-      homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./commons/shell
-          ./configurations/root
         ];
       };
     };

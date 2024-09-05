@@ -1,4 +1,4 @@
-{ ... }:
+{ nixpkgs, ... }:
 {
   imports = [
     ./gnome.nix
@@ -10,6 +10,15 @@
 
   # Allow unfree packages for Home Manager
   nixpkgs.config.allowUnfree = true;
+
+  # Pin the nixpkgs version for nix commands
+  nix.registry.pkgs = {
+    from = {
+      type = "indirect";
+      id = "pkgs";
+    };
+    flake = nixpkgs;
+  };
 
   # Allow unfree packages from the command line
   home.file.".config/nixpkgs/config.nix".text = ''
