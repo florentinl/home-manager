@@ -6,6 +6,7 @@
 
     # Applications
     microsoft-edge
+    teams-for-linux
     enpass
     zed-editor
 
