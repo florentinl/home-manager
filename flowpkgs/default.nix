@@ -1,6 +1,5 @@
 {
   imports = [
-    ./autostart.nix
     ./services
   ];
 }
