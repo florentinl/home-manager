@@ -1,5 +1,6 @@
 { pkgs, lib, ... }:
 {
+  home.sessionVariables.VIRTUAL_ENV_DISABLE_PROMPT = "1";
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -17,7 +18,6 @@
     };
 
     localVariables = {
-      VIRTUAL_ENV_DISABLE_PROMPT = "1"; # This will be managed by Starship instead
       ZLE_RPROMPT_INDENT = "0";
     };
 

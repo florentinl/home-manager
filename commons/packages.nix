@@ -43,4 +43,7 @@
     X-GNOME-Autostart-enabled=true
   '';
 
+  # Use Wayland Ozone platform for Chromium based apps
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
 }

@@ -27,17 +27,8 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "blur-my-shell@aunetx"
         "gsconnect@andyholmes.github.io"
-        "pano@elhan.io"
+        "clipboard-history@alexsaveau.dev"
       ];
-    };
-
-    # Pano settings
-    "org/gnome/shell/extensions/pano" = {
-      session-only-mode = true;
-      exclusion-list = [ "Enpass" ];
-      send-notification-on-copy = false;
-      play-audio-on-copy = false;
-      global-shortcut = [ "<Super>v" ];
     };
 
     # Keybindings
@@ -58,6 +49,6 @@
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.blur-my-shell
     gnomeExtensions.gsconnect
-    gnomeExtensions.pano
+    gnomeExtensions.clipboard-history
   ];
 }
