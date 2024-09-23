@@ -15,6 +15,7 @@
     nvim-autopairs.enable = true;
     project-nvim.enable = true;
     project-nvim.enableTelescope = true;
+    web-devicons.enable = true;
     which-key.enable = true;
   };
 

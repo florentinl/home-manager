@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, olympuspkgs, ... }:
 {
   programs.nix-index-database.comma.enable = true;
 
@@ -29,6 +29,10 @@
 
     # Utils
     wl-clipboard
+
+    # Cybersecurity
+    ghidra
+    zap
   ];
 
   # Autostart Enpass minimised
@@ -44,6 +48,6 @@
   '';
 
   # Use Wayland Ozone platform for Chromium based apps
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  # home.sessionVariables.NIXOS_OZONE_WL = "1";
 
 }
