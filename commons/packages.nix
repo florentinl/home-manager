@@ -1,4 +1,4 @@
-{ pkgs, olympuspkgs, ... }:
+{ pkgs, ... }:
 {
   programs.nix-index-database.comma.enable = true;
 
@@ -19,9 +19,6 @@
       ];
     })
 
-    # Python
-    python3
-
     # Programming in Nix
     nixfmt-rfc-style
     nixd
@@ -32,7 +29,6 @@
 
     # Cybersecurity
     ghidra
-    zap
   ];
 
   # Autostart Enpass minimised

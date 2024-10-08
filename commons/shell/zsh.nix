@@ -5,6 +5,9 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
+    initExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
 
     shellAliases = {
       # Eza Aliases
