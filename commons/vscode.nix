@@ -153,6 +153,11 @@
 
       # Git Hunk navigation
       {
+        key = "ctrl+k shift+g";
+        command = "editor.action.dirtydiff.previous";
+        when = "editorTextFocus && !textCompareEditorActive";
+      }
+      {
         key = "ctrl+k g";
         command = "editor.action.dirtydiff.next";
         when = "editorTextFocus && !textCompareEditorActive";
@@ -166,6 +171,51 @@
       {
         key = "ctrl+k b";
         command = "git.unstageSelectedRanges";
+      }
+
+      # Navigate to next/previous problems
+      {
+        key = "ctrl+k n";
+        command = "editor.action.marker.next";
+        when = "editorFocus";
+      }
+      {
+        key = "alt+f8";
+        command = "-editor.action.marker.next";
+        when = "editorFocus";
+      }
+
+      {
+        key = "ctrl+k p";
+        command = "editor.action.marker.prev";
+        when = "editorFocus";
+      }
+      {
+        key = "shift+alt+f8";
+        command = "-editor.action.marker.prev";
+        when = "editorFocus";
+      }
+
+      # Fix copy/paste in terminal
+      {
+        key = "ctrl+c";
+        command = "workbench.action.terminal.copySelection";
+        when = "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused";
+      }
+      {
+        key = "ctrl+shift+c";
+        command = "-workbench.action.terminal.copySelection";
+        when = "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused";
+      }
+      {
+        key = "ctrl+v";
+        command = "workbench.action.terminal.paste";
+        when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
+      }
+      {
+        key = "ctrl+shift+v";
+        command = "-workbench.action.terminal.paste";
+        when = "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
       }
     ];
   };
